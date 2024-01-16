@@ -5,13 +5,23 @@ import CategoryGridTile from "../components/CategoryGridTile";
 
 import { CATEGORIES } from "../data/dummy-data";
 
-const renderCategoryItem = (itemData) => {
-  return (
-    <CategoryGridTile title={itemData.item.title} color={itemData.item.color} />
-  );
-};
+const CategoriesScreen = ({ navigation }) => {
+  const renderCategoryItem = (itemData) => {
+    const onPress = () => {
+      navigation.navigate("MealsOverview", {
+        categorieId: itemData.item.id,
+      });
+    };
 
-const CategoriesScreen = () => {
+    return (
+      <CategoryGridTile
+        title={itemData.item.title}
+        color={itemData.item.color}
+        onPress={onPress}
+      />
+    );
+  };
+
   return (
     <FlatList
       data={CATEGORIES}
