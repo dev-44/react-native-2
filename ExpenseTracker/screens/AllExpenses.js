@@ -1,9 +1,9 @@
-import { StyleSheet, Text, View } from "react-native";
-import ExpensesOutput from "../components/ExpensesOutput/ExpensesOutput";
 import { useContext } from "react";
+
+import ExpensesOutput from "../components/ExpensesOutput/ExpensesOutput";
 import { ExpensesContext } from "../store/expenses-context";
 
-const AllExpenses = () => {
+function AllExpenses() {
   const expensesCtx = useContext(ExpensesContext);
 
   return (
@@ -13,8 +13,6 @@ const AllExpenses = () => {
       fallbackText="No registered expenses found!"
     />
   );
-};
+}
 
 export default AllExpenses;
-
-const styles = StyleSheet.create({});
